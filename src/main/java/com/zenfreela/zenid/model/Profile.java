@@ -24,6 +24,8 @@ public class Profile {
 
     private String biography;
 
+    private String image;
+
     @CreatedDate
     private Date createdDate;
 
