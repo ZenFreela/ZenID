@@ -8,6 +8,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.sql.Date;
+import java.util.List;
 
 @Document(collection = "users_profile")
 @Getter @Setter
@@ -25,6 +26,8 @@ public class Profile {
     private String biography;
 
     private String image;
+
+    private List<Follow> followers;
 
     @CreatedDate
     private Date createdDate;
