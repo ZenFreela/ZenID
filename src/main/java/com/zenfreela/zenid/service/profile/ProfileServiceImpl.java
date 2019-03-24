@@ -57,7 +57,7 @@ public class ProfileServiceImpl implements ProfileService {
     }
 
     @Override
-    public Mono<Void> deleteByEmail(String email) {
+    public Mono<Long> deleteByEmail(String email) {
         return profileRepository.deleteByEmail(email);
     }
 
