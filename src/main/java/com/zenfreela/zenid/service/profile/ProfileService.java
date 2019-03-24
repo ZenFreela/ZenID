@@ -1,15 +1,17 @@
-package com.zenfreela.zenid.repository;
+package com.zenfreela.zenid.service.profile;
 
 import com.zenfreela.zenid.model.Profile;
-import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import com.zenfreela.zenid.service.CrudService;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public interface ProfileRepository extends ReactiveMongoRepository<Profile, String> {
+public interface ProfileService extends CrudService<Profile> {
 
     Mono<Profile> findByEmail(String email);
 
     Flux<Profile> findByFirstNameAndLastName(String firstName, String lastName);
+
+    Mono<Profile> updateByEmail(String email, Profile body);
 
     Mono<Void> deleteByEmail(String email);
 
