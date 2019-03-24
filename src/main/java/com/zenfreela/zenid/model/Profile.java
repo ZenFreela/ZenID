@@ -2,19 +2,12 @@ package com.zenfreela.zenid.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.sql.Date;
-import java.util.List;
-
-@Document(collection = "users_profile")
 @Getter @Setter
-public class Profile {
+@Document(collection = "users_profile")
+public class Profile extends AbstractModel {
 
-    @Id
     private String email;
 
     private String firstName;
@@ -26,13 +19,5 @@ public class Profile {
     private String biography;
 
     private String image;
-
-    private List<Follow> followers;
-
-    @CreatedDate
-    private Date createdDate;
-
-    @LastModifiedDate
-    private Date lastModifiedDate;
 
 }

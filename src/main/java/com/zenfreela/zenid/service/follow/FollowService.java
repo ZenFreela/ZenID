@@ -1,11 +1,11 @@
-package com.zenfreela.zenid.repository;
+package com.zenfreela.zenid.service.follow;
 
 import com.zenfreela.zenid.model.Follow;
-import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import com.zenfreela.zenid.service.CrudService;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public interface FollowRepository extends ReactiveMongoRepository<Follow, String> {
+public interface FollowService extends CrudService<Follow> {
 
     Flux<Follow> findByEmail(String email);
 
