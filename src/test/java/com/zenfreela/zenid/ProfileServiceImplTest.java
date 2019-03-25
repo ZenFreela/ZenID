@@ -51,7 +51,7 @@ public class ProfileServiceImplTest {
     @Test(expected = AssertionError.class)
     public void updateByEmail() {
         String email = "jailsondev70@gmail.com";
-        String biography = "ZenFreela <3";
+        String biography = "ZenFreela is love.";
 
         Mono<Profile> profileMono = profileService.findByEmail(email);
         Profile profile = profileMono.block();
