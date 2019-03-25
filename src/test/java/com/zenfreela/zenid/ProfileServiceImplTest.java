@@ -29,8 +29,6 @@ public class ProfileServiceImplTest {
         List<Profile> profileList = profileFlux.collectList().block();
 
         assertThat(profileList, notNullValue());
-
-        profileList.forEach(System.out::println);
     }
 
     @Test
@@ -48,6 +46,26 @@ public class ProfileServiceImplTest {
 
         assertThat(profileSave, notNullValue());
         assertThat(profile.getEmail(), is(profileSave.getEmail()));
+    }
+
+    @Test(expected = AssertionError.class)
+    public void updateByEmail() {
+        String email = "jailsondev70@gmail.com";
+        String biography = "ZenFreela <3";
+
+        Mono<Profile> profileMono = profileService.findByEmail(email);
+        Profile profile = profileMono.block();
+
+        assertThat(profile, notNullValue());
+
+        profile.setBiography(biography);
+
+        Mono<Profile> updatedMono = profileService.updateByEmail(email, profile);
+        Profile updated = updatedMono.block();
+
+        assertThat(updated, notNullValue());
+        assertThat(updated.getEmail(), is(email));
+        assertThat(updated.getBiography(), is(biography));
     }
 
     @Test
