@@ -13,6 +13,6 @@ public interface ProfileService extends CrudService<Profile> {
 
     Mono<Profile> updateByEmail(String email, Profile body);
 
-    Mono<Void> deleteByEmail(String email);
+    Mono<Long> deleteByEmail(String email);
 
 }

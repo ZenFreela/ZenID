@@ -11,6 +11,6 @@ public interface ProfileRepository extends ReactiveMongoRepository<Profile, Stri
 
     Flux<Profile> findByFirstNameAndLastName(String firstName, String lastName);
 
-    Mono<Void> deleteByEmail(String email);
+    Mono<Long> deleteByEmail(String email);
 
 }

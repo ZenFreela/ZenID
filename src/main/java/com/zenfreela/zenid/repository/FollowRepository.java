@@ -11,4 +11,6 @@ public interface FollowRepository extends ReactiveMongoRepository<Follow, String
 
     Mono<Follow> findByEmailAndFollower(String email, String follower);
 
+    Mono<Long> deleteByEmailAndFollower(String email, String follower);
+
 }

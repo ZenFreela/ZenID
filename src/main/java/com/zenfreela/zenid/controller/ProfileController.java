@@ -52,7 +52,7 @@ public class ProfileController {
     }
 
     @DeleteMapping(path = "/{email}", produces = "application/json")
-    public ResponseEntity<Mono<Void>> deleteByEmail(@PathVariable("email") @NonNull String email) {
+    public ResponseEntity<Mono<Long>> deleteByEmail(@PathVariable("email") @NonNull String email) {
         return ok(profileService.deleteByEmail(email));
     }
 

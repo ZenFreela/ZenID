@@ -57,7 +57,7 @@ public class ProfileServiceImpl implements ProfileService {
     }
 
     @Override
-    public Mono<Void> deleteByEmail(String email) {
+    public Mono<Long> deleteByEmail(String email) {
         return profileRepository.deleteByEmail(email);
     }
 
@@ -72,8 +72,7 @@ public class ProfileServiceImpl implements ProfileService {
     }
 
     @Override
-    public Mono<Void> delete(String... ids) {
-        String id = ids[0];
+    public Mono<Void> delete(String id) {
         return profileRepository.deleteById(id);
     }
 

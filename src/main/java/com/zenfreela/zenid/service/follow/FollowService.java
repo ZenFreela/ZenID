@@ -11,4 +11,6 @@ public interface FollowService extends CrudService<Follow> {
 
     Mono<Follow> findByEmailAndFollower(String email, String follower);
 
+    Mono<Long> deleteByEmailAndFollower(String email, String follower);
+
 }
