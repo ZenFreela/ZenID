@@ -32,15 +32,21 @@ public class FollowController {
         return ok(followService.findByEmail(email));
     }
 
+    @GetMapping(path = "/{email}/{follower}", produces = "application/json")
+    public ResponseEntity<Mono<Follow>> findByEmailAndFollower(@PathVariable("email") @NonNull String email,
+                                                               @PathVariable("follower") @NonNull String follower) {
+        return ok(followService.findByEmailAndFollower(email, follower));
+    }
+
     @PostMapping(path = "", produces = "application/json")
     public ResponseEntity<Mono<Follow>> save(@RequestBody @NonNull Follow body) {
         return ok(followService.save(body));
     }
 
-    @DeleteMapping(path = "/{email}/{target}", produces = "application/json")
-    public ResponseEntity<Mono<Void>> delete(@PathVariable("email") @NonNull String email,
-                                             @PathVariable("target") @NonNull String target) {
-        return ok(followService.delete(email, target));
+    @DeleteMapping(path = "/{email}/{follower}", produces = "application/json")
+    public ResponseEntity<Mono<Long>> deleteByEmailAndFollower(@PathVariable("email") @NonNull String email,
+                                                               @PathVariable("follower") @NonNull String follower) {
+        return ok(followService.deleteByEmailAndFollower(email, follower));
     }
 
 }

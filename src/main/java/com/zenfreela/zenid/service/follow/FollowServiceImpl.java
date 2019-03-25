@@ -28,6 +28,11 @@ public class FollowServiceImpl implements FollowService {
     }
 
     @Override
+    public Mono<Long> deleteByEmailAndFollower(String email, String follower) {
+        return followRepository.deleteByEmailAndFollower(email, follower);
+    }
+
+    @Override
     public Flux<Follow> findAll() {
         return followRepository.findAll();
     }
@@ -38,13 +43,8 @@ public class FollowServiceImpl implements FollowService {
     }
 
     @Override
-    public Mono<Void> delete(String... ids) {
-        String email = ids[0];
-        String follower = ids[1];
-
-        return findByEmailAndFollower(email, follower)
-                .onErrorResume(Mono::error)
-                .flatMap(followRepository::delete);
+    public Mono<Void> delete(String id) {
+        return followRepository.deleteById(id);
     }
 
     @Override

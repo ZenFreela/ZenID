@@ -10,7 +10,7 @@ public interface CrudService<T extends AbstractModel> {
 
     Mono<T> findById(String id);
 
-    Mono<Void> delete(String... ids);
+    Mono<Void> delete(String id);
 
     Mono<T> save(T body);
 

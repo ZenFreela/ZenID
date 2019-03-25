@@ -72,8 +72,7 @@ public class ProfileServiceImpl implements ProfileService {
     }
 
     @Override
-    public Mono<Void> delete(String... ids) {
-        String id = ids[0];
+    public Mono<Void> delete(String id) {
         return profileRepository.deleteById(id);
     }
 
